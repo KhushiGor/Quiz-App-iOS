@@ -13,7 +13,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "tored"{
+//                    
+//            }else {
+//                
+//                let questionBankVC =  segue.destination as! QuestionBankTableViewController
+//                }
+//            }
+//        }
 
 }
 
