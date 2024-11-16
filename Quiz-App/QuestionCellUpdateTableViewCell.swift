@@ -9,6 +9,16 @@ import UIKit
 
 class QuestionCellUpdateTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var questionText: UITextField!
+    
+    @IBOutlet weak var correctAnswerText: UITextField!
+    
+    @IBOutlet weak var incorrectAnswer1Text: UITextField!
+    
+    @IBOutlet weak var incorrectAnswer2Text: UITextField!
+    
+    @IBOutlet weak var incorrectAnswer3Text: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

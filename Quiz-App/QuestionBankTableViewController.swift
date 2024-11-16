@@ -7,7 +7,13 @@
 
 import UIKit
 
-class QuestionBankTableViewController: UITableViewController {
+class QuestionBankTableViewController: UITableViewController, {
+    
+    func updateQuestion(index: Int, newQuestion: QuestionModel) {
+           print(index)
+           QuestionManager.shared.questions[index] = newQuestion
+           tableView.reloadData()
+       }
     var questionsArray = (UIApplication.shared.delegate as! AppDelegate).allQuestions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,31 +28,49 @@ class QuestionBankTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return questionsArray.count
+       
+        return QuestionManager.shared.questions.count
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var questionIndex = indexPath.row
-        cell.textLabel?.text = "\(questionsArray[questionIndex].question)"
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! QuestionCellUpdateTableViewCell
+        
+        let question = QuestionManager.shared.questions[indexPath.row]
+        cell.questionText.text = question.question
+        cell.correctAnswerText.text = question.correctAnswer
+        cell.incorrectAnswer1Text.text = question.incorrectAnswer2
+        cell.incorrectAnswer3Text.text = question.incorrectAnswer3
         return cell
     }
     
-
+    func saveQuestion(newQuestion: QuestionModel){
+        QuestionManager.shared.addNewQuestion(q: newQuestion)
+        tableView.reloadData()
+    }
     
      
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "addQuestion"{
+                var addquestionvc = segue.destination as! QuestionBuilderViewController
+                addquestionvc.delegate = self
+            }
+            else if segue.identifier == "updateQuestion"{
+                var uvc = segue.destination as! UpdateViewController
+                uvc.selectedIndex = tableView.indexPathForSelectedRow!.row
+                uvc.delegate = self
+            }
+            
 
     /*
     // Override to support editing the table view.

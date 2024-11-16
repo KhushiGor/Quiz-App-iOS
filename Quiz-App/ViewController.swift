@@ -9,19 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var startQuizButton: UIButton!
+    var questionList = QuestionManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "tored"{
-//                    
-//            }else {
-//                
-//                let questionBankVC =  segue.destination as! QuestionBankTableViewController
-//                }
-//            }
-//        }
+     override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if questionList.questions.isEmpty {
+        startQuizButton.isEnabled = false
+    } else {
+        startQuizButton.isEnabled = true
+    }
+}
 
 }
 

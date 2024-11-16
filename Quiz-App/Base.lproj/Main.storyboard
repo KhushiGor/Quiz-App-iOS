@@ -49,6 +49,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Quiz" id="xBL-mh-HxA"/>
+                    <connections>
+                        <outlet property="startQuizButton" destination="YGB-EU-hQq" id="aJZ-eU-naH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="1790" y="-35"/>
         </scene>
-        <!--Question Cell Update View Controller-->
+        <!--Question Cell-->
         <scene sceneID="7oa-E1-PBs">
             <objects>
-                <viewController id="Npg-aD-ROE" customClass="QuestionCellUpdateViewController" customModule="Quiz_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Npg-aD-ROE" customClass="QuestionCell" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnZ-JL-GUB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,6 +248,13 @@
                     <navigationItem key="navigationItem" id="EXe-1o-5su">
                         <barButtonItem key="rightBarButtonItem" title="Update" id="y7a-xu-AmX"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="correctAnswerText" destination="l7f-6p-b7F" id="vmC-03-GE8"/>
+                        <outlet property="incorrectAnswer1Text" destination="YK0-2c-VSW" id="B74-GB-UOK"/>
+                        <outlet property="incorrectAnswer2Text" destination="aLU-wH-Ofc" id="91X-p7-Mi2"/>
+                        <outlet property="incorrectAnswer3Text" destination="Sxx-qD-sto" id="5OO-F9-gr9"/>
+                        <outlet property="questionText" destination="ybt-Wr-LIQ" id="WUm-aH-AgG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5V-F7-9Em" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B544F3552CE941670065F2F3 /* QuestionCellUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544F3542CE941670065F2F3 /* QuestionCellUpdateViewController.swift */; };
+		B544F3572CE94BEE0065F2F3 /* QuestionCellUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544F3562CE94BEE0065F2F3 /* QuestionCellUpdateTableViewCell.swift */; };
 		B5B7F2AB2CE52C3D00F478D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7F2AA2CE52C3D00F478D5 /* AppDelegate.swift */; };
 		B5B7F2AD2CE52C3D00F478D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7F2AC2CE52C3D00F478D5 /* SceneDelegate.swift */; };
 		B5B7F2AF2CE52C3D00F478D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7F2AE2CE52C3D00F478D5 /* ViewController.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B544F3542CE941670065F2F3 /* QuestionCellUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellUpdateViewController.swift; sourceTree = "<group>"; };
+		B544F3562CE94BEE0065F2F3 /* QuestionCellUpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCellUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		B5B7F2A72CE52C3D00F478D5 /* Quiz-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quiz-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5B7F2AA2CE52C3D00F478D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5B7F2AC2CE52C3D00F478D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				B5B7F2DC2CE5460200F478D5 /* QuestionBuilderViewController.swift */,
 				B5B7F2DE2CE55AE200F478D5 /* QuizViewController.swift */,
 				B5B7F2E02CE5708000F478D5 /* QuestionModel.swift */,
-				B544F3542CE941670065F2F3 /* QuestionCellUpdateViewController.swift */,
+				B544F3562CE94BEE0065F2F3 /* QuestionCellUpdateTableViewCell.swift */,
 			);
 			path = "Quiz-App";
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 				B5B7F2E12CE5708000F478D5 /* QuestionModel.swift in Sources */,
 				B5B7F2AF2CE52C3D00F478D5 /* ViewController.swift in Sources */,
 				B5B7F2AB2CE52C3D00F478D5 /* AppDelegate.swift in Sources */,
-				B544F3552CE941670065F2F3 /* QuestionCellUpdateViewController.swift in Sources */,
 				B5B7F2AD2CE52C3D00F478D5 /* SceneDelegate.swift in Sources */,
+				B544F3572CE94BEE0065F2F3 /* QuestionCellUpdateTableViewCell.swift in Sources */,
 				B5B7F2DF2CE55AE200F478D5 /* QuizViewController.swift in Sources */,
 				B5B7F2DD2CE5460200F478D5 /* QuestionBuilderViewController.swift in Sources */,
 				B5B7F2DB2CE533C500F478D5 /* QuestionBankTableViewController.swift in Sources */,

@@ -6,9 +6,14 @@
 //
 
 import UIKit
-
+protocol QuestionBuilderDelegate{
+    func saveQuestion(newQuestion: QuestionModel)
+    func cancel()
+}
 class QuestionBuilderViewController: UIViewController {
 
+    
+    var delegate : QuestionBuilderDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,20 +33,23 @@ class QuestionBuilderViewController: UIViewController {
     @IBOutlet weak var incorrectAnswer3Text: UITextField!
     
     @IBAction func doneClicked(_ sender: UIBarButtonItem) {
-        if let goodQuestion = questionText.text , let goodCorrectAnswer = correctAnswerText.text, let goodIncorrectAnswer1 = incorrectAnswer1Text.text, let goodIncorrectAnswer2 = incorrectAnswer2Text.text, let goodIncorrectAnswer3 = incorrectAnswer3Text.text  {
-                   if !goodQuestion.isEmpty , !goodCorrectAnswer.isEmpty, !goodIncorrectAnswer1.isEmpty, !goodIncorrectAnswer2.isEmpty, !goodIncorrectAnswer3.isEmpty  {
-                       
-                       let newQuestion = QuestionModel(question: goodQuestion, correctAnswer: goodCorrectAnswer, incorrectAnswer1: goodIncorrectAnswer1, incorrectAnswer2: goodIncorrectAnswer2, incorrectAnswer3: goodIncorrectAnswer3, : questions[selectedSemesterIndex])
-                       
-                       print(newQuestion.toString())
-                       (UIApplication.shared.delegate as! AppDelegate).allStudents.append(newStd)
-                       stdarray = (UIApplication.shared.delegate as! AppDelegate).allStudents
-                       
-                       stdTable.reloadData()
-                       stdNameText.text = ""
-                       programText.text = ""
-                   }
-               }
+        if let questionText = questionText.text , let correctAnswer = correctAnswerText.text,
+           let incorrectAnswer1 = incorrectAnswer1Text.text,
+           let incorrectAnswer2 = incorrectAnswer2Text.text,
+           let incorrectAnswer3 = incorrectAnswer3Text.text
+            
+        {
+            if !questionText.isEmpty , !correctAnswer.isEmpty, !incorrectAnswer1.isEmpty,
+               !incorrectAnswer2.isEmpty, !incorrectAnswer3.isEmpty
+            {
+                let newQuestion = QuestionModel(question: questionText, correctAnswer: correctAnswer, incorrectAnswer1: incorrectAnswer1, incorrectAnswer2: incorrectAnswer2, incorrectAnswer3: incorrectAnswer3 )
+                
+                delegate?.saveQuestion(newQuestion: newQuestion)
+                dismiss(animated: true)
+            }
+            
+            
+        }
     }
     
     /*
