@@ -84,12 +84,16 @@
                                 <items>
                                     <barButtonItem title="Previous" id="hB5-AX-GwM">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="previousClicked:" destination="bFM-iI-p8n" id="pIk-xt-7sT"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="239" style="plain" systemItem="fixedSpace" id="LXX-hM-y9N"/>
                                     <barButtonItem title="Next" id="dTG-7W-PgB">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <segue destination="0e4-c9-Oxj" kind="show" id="uii-i6-MPU"/>
+                                            <action selector="nextClicked:" destination="bFM-iI-p8n" id="ecD-zw-qR3"/>
+                                            <segue destination="0e4-c9-Oxj" kind="show" identifier="showScore" id="uii-i6-MPU"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -100,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="IdK-n6-g75">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" id="IdK-n6-g75">
                                         <rect key="frame" x="0.0" y="50" width="324" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IdK-n6-g75" id="c7n-sE-abk">
@@ -116,6 +120,11 @@
                         <color key="tintColor" systemColor="systemGreenColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Quiz" id="vn1-11-vdz"/>
+                    <connections>
+                        <outlet property="optionsTable" destination="pIc-k1-Urc" id="nhk-mZ-Lj3"/>
+                        <outlet property="progressBar" destination="MfR-LZ-th3" id="9is-Aq-eJw"/>
+                        <outlet property="questionText" destination="Llu-uZ-eEc" id="RF1-Rg-w2U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keH-Qm-szn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +133,7 @@
         <!--My Quiz-->
         <scene sceneID="5wr-Oc-vtZ">
             <objects>
-                <viewController id="0e4-c9-Oxj" sceneMemberID="viewController">
+                <viewController id="0e4-c9-Oxj" customClass="ResultViewController" customModule="Quiz_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcW-xM-AaT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +157,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Quiz" id="ph2-aS-ukZ"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="OGg-cF-z80" id="aOi-gD-TzH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InO-YC-hCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
