@@ -1,26 +1,20 @@
 //
-//  QuestionBuilderViewController.swift
+//  QuestionCellUpdateViewController.swift
 //  Quiz-App
 //
-//  Created by Khushi Mineshkumar Gor on 2024-11-13.
+//  Created by Khushi Mineshkumar Gor on 2024-11-16.
 //
 
 import UIKit
-protocol QuestionBuilderDelegate{
-    func doneClicked(newQuestion: QuestionModel)
+protocol UpdateQuestionDelegate{
+    func updateQuestion(index: Int,newQuestion: QuestionModel)
 }
-class QuestionBuilderViewController: UIViewController {
-
+class QuestionCellUpdateViewController: UIViewController {
+    var delegate: UpdateQuestionDelegate?
+        var selectedIndex : Int = 0
     
-    var delegate : QuestionBuilderDelegate?
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
     @IBOutlet weak var questionText: UITextField!
-    
     
     @IBOutlet weak var correctAnswerText: UITextField!
     
@@ -28,10 +22,20 @@ class QuestionBuilderViewController: UIViewController {
     
     @IBOutlet weak var incorrectAnswer2Text: UITextField!
     
-    
     @IBOutlet weak var incorrectAnswer3Text: UITextField!
     
-    @IBAction func doneClicked(_ sender: UIBarButtonItem) {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        questionText.text = QuestionManager.shared.questions[selectedIndex].question;
+                correctAnswerText.text = QuestionManager.shared.questions[selectedIndex].correctAnswer;
+        incorrectAnswer1Text.text = QuestionManager.shared.questions[selectedIndex].incorrectAnswer1;
+        incorrectAnswer2Text.text = QuestionManager.shared.questions[selectedIndex].incorrectAnswer2;
+        incorrectAnswer3Text.text = QuestionManager.shared.questions[selectedIndex].incorrectAnswer3;
+        // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func updateQuestionClicked(_ sender: Any) {
         if let questionText = questionText.text , let correctAnswer = correctAnswerText.text,
            let incorrectAnswer1 = incorrectAnswer1Text.text,
            let incorrectAnswer2 = incorrectAnswer2Text.text,
@@ -43,15 +47,12 @@ class QuestionBuilderViewController: UIViewController {
             {
                 let newQuestion = QuestionModel(question: questionText, correctAnswer: correctAnswer, incorrectAnswer1: incorrectAnswer1, incorrectAnswer2: incorrectAnswer2, incorrectAnswer3: incorrectAnswer3, answer: Answer(isCorrect: true, text: correctAnswer) )
                 
-                delegate?.doneClicked(newQuestion: newQuestion)
-                navigationController?.popViewController(animated: true)
+                delegate?.updateQuestion(index: selectedIndex, newQuestion: newQuestion)
                 dismiss(animated: true)
             }
             
-            
         }
     }
-    
     /*
     // MARK: - Navigation
 

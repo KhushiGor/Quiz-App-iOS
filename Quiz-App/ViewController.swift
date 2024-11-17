@@ -17,11 +17,11 @@ class ViewController: UIViewController {
     }
      override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if questionList.questions.isEmpty {
-        startQuizButton.isEnabled = false
-    } else {
-        startQuizButton.isEnabled = true
-    }
+//    if questionList.questions.isEmpty {
+//        startQuizButton.isEnabled = false
+//    } else {
+//        startQuizButton.isEnabled = true
+//    }
 }
 
 }
